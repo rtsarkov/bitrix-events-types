@@ -1,0 +1,11 @@
+{
+    "name": "mio-code/bitrix-event-types",
+    "autoload": {
+        "psr-4": {
+            "MioCode\\BitrixEventTypes\\": "src/"
+        }
+    },
+    "require": {
+        "nette/php-generator": "^4.1"
+    }
+}
