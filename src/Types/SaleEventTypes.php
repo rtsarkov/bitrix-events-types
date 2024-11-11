@@ -6,6 +6,7 @@ namespace MioCode\BitrixEventTypes\Types;
 
 class SaleEventTypes
 {
+	public const MODULE = 'sale';
 	public const ON_BEFORE_PERSON_TYPE_ADD = 'OnBeforePersonTypeAdd';
 	public const ON_PERSON_TYPE_ADD = 'OnPersonTypeAdd';
 	public const ON_BEFORE_PERSON_TYPE_UPDATE = 'OnBeforePersonTypeUpdate';

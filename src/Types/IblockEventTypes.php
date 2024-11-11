@@ -6,6 +6,7 @@ namespace MioCode\BitrixEventTypes\Types;
 
 class IblockEventTypes
 {
+	public const MODULE = 'iblock';
 	public const ON_BEFORE_IBLOCK_ADD = 'OnBeforeIBlockAdd';
 	public const ON_AFTER_IBLOCK_ADD = 'OnAfterIBlockAdd';
 	public const ON_BEFORE_IBLOCK_UPDATE = 'OnBeforeIBlockUpdate';

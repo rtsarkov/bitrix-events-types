@@ -1,12 +1,12 @@
 # Bitrix event types
 
-Сгенерированные подсказки для написания событий в bitrix
+Сгенерированные подсказки для написания событий в bitrix. Список буду пополнять.
 
 
 ```php
 $eventManager = \Bitrix\Main\EventManager::getInstance();
 $eventManager->addEventHandler(
-  "main",
+  \MioCode\BitrixEventTypes\Types\UserEventTypes::MODULE,
   \MioCode\BitrixEventTypes\Types\UserEventTypes::ON_AFTER_USER_REGISTER,
   [UserHandler::class, 'OnBeforeUserRegisterHandle']
 );
@@ -28,5 +28,6 @@ class UserHandler implements UserOnBeforeUserRegisterHandler
 ```
 
 Весь список и его настройки хранятся в файле src/event.php
-Для генерации можно запустить php src/generate.php
+
+Для генерации можно запустить php src/generate.php.
 Все файлы классов и интерфейсы сгенерируются заново.

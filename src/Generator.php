@@ -1,13 +1,13 @@
 <?php
 
-namespace MioCode\BitrixEventTypes\Generator;
+namespace MioCode\BitrixEventTypes;
 
 class Generator
 {
     private array $events = [];
     public function __construct()
     {
-        $this->events = include __DIR__ . '/../events.php';
+        $this->events = include __DIR__ . '/events.php';
     }
 
     public function generateTypes()
@@ -16,12 +16,12 @@ class Generator
             $file = new \Nette\PhpGenerator\PhpFile();
             $file->setStrictTypes();
             $class = $file->addClass('MioCode\BitrixEventTypes\Types\\' . ucfirst($module) . 'EventTypes');
-
+            $class->addConstant('MODULE', $module);
             foreach ($events as $event => $params) {
                 $class->addConstant(self::toSnakeCaseUpper($event), $event);
             }
 
-            file_put_contents(__DIR__ . '/../Types/' . ucfirst($module) . 'EventTypes.php', $file);
+            file_put_contents(__DIR__ . '/Types/' . ucfirst($module) . 'EventTypes.php', $file);
         }
     }
 
@@ -44,12 +44,12 @@ class Generator
                         $parameter->setType($type);
                     }
                 }
-                if (!is_dir(__DIR__ . '/../Events/' . ucfirst($module))) {
-                    if (!mkdir($concurrentDirectory = __DIR__ . '/../Events/' . ucfirst($module), 0777, true) && !is_dir($concurrentDirectory)) {
+                if (!is_dir(__DIR__ . '/Events/' . ucfirst($module))) {
+                    if (!mkdir($concurrentDirectory = __DIR__ . '/Events/' . ucfirst($module), 0777, true) && !is_dir($concurrentDirectory)) {
                         throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
                     }
                 }
-                file_put_contents(__DIR__ . '/../Events/' . ucfirst($module) . '/' . ucfirst($module) . ucfirst($event) . 'Handler.php', $file);
+                file_put_contents(__DIR__ . '/Events/' . ucfirst($module) . '/' . ucfirst($module) . ucfirst($event) . 'Handler.php', $file);
             }
             $file = new \Nette\PhpGenerator\PhpFile();
             $file->setStrictTypes();

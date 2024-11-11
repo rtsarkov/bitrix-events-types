@@ -6,6 +6,7 @@ namespace MioCode\BitrixEventTypes\Types;
 
 class MainEventTypes
 {
+	public const MODULE = 'main';
 	public const ON_PAGE_START = 'OnPageStart';
 	public const ON_BEFORE_PROLOG = 'OnBeforeProlog';
 	public const ON_PROLOG = 'OnProlog';
